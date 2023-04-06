@@ -383,7 +383,6 @@
 
     //check for LOGIN state
     loginState = config.regExps.login.exec(convertedDoc);
-    console.log("!!!loginState", loginState);
     if (!loginState) {
       redirectTo(page, "login", { showAuth: false });
       return;
@@ -864,7 +863,6 @@
         }
         response = showtime.httpReq(config.urls.login, request);
         page.loading = false;
-        console.log("!!!auth all headers", response.allheaders);
         saveUserCookie(response.multiheaders, true);
         captchaResult = config.regExps.captcha.exec(response.toString());
         if (captchaResult) {
